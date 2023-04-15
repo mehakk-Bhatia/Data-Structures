@@ -1,0 +1,22 @@
+class Solution {
+public:
+    vector<long long> findPrefixScore(vector<int>& nums) {
+        vector<long long> ans1;
+        vector<long long> res;
+        long long maxi = nums[0];
+        for(int i=0 ; i<nums.size() ; i++){
+            if(maxi < nums[i]){
+                maxi = nums[i];
+            }
+            int x = nums[i] + maxi;
+            ans1.push_back(x);
+        }
+        long long sum=0;
+        for(int j=0 ; j<ans1.size() ; j++){
+            sum += ans1[j];
+            res.push_back(sum);
+        }
+        return res;
+        
+    }
+};
