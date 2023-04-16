@@ -11,19 +11,12 @@
  */
 class Solution {
 public:
-    void f(TreeNode* root , vector<int> &v){
-         if(root == NULL){
-             return ;
-         }
-         f(root->left , v);
-         v.push_back(root->val);
-         f(root->right , v);
-    }
-    vector<int> inorderTraversal(TreeNode* root) {
-        vector<int> v;
-        
-        f(root , v);
-        return v;
-        
+    int maxDepth(TreeNode* root) {
+        if (root == NULL){
+            return 0;
+        }
+        else{
+            return max(maxDepth(root->left) , maxDepth(root->right)) + 1;
+        }
     }
 };
